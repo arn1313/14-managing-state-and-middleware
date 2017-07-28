@@ -5,6 +5,10 @@ var app = app || {};
   const newArticle = {};
 
   // COMMENT: What is this function doing? Where is it called? Does it call any other functions, and if so, in what file(s) do those function(s) live?
+
+  //This is initializing the NewArticle page and hiding the export field. What is the export-field. And then we focus on the article...
+  //It appends as we switch from text field to text field.
+  //when we submit the form it makes sure the new articles are saved as objects with the content we just wrote. Runs it through the constructor fucntion. And then pushes it to the article.all array.
   newArticle.initNewArticlePage = function() {
     $('.tab-content').show();
     $('#export-field').hide();
