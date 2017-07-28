@@ -13,4 +13,5 @@ page('/author/:authorName', app.articleController.loadByAuthor, app.articleContr
 page('/category/:categoryName', app.articleController.loadByCategory, app.articleController.index);
 
 // COMMENT: What is this function doing?
+//This is the callback for all the pages and their routes, and obviously their content.  
 page();
