@@ -14,12 +14,19 @@ var app = app || {};
   // REVIEW: With ES6 arrow functions, if the function only has one parameter, you don't need parentheses.
   //         This is similar to saying Article.loadAll = function(rows).
     // COMMENT: What is this function doing? Where is it called? Does it call any other functions, and if so, in what file(s) do those function(s) live?
+
+    //The loadAll funtion is loading all rows of articles.
+    //It is called within the fetchAll function.
+    //It is not calling any other functions.
   Article.loadAll = rows => {
     rows.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)));
     Article.all = rows.map(ele => new Article(ele));
   };
 
   // COMMENT: What is this function doing? Where is it called? Does it call any other functions, and if so, in what file(s) do those function(s) live?
+
+  //It is getting all the article through jquery then loading all the results throught the article.loadAll function below.
+  //Yes, fetchAll function calls Article.loadAll.
   Article.fetchAll = callback => {
     $.get('/articles')
     .then(
@@ -55,6 +62,8 @@ var app = app || {};
   };
 
   // COMMENT: What is this function doing? Where is it called? Does it call any other functions, and if so, in what file(s) do those function(s) live?
+
+  //total word count for each author to then get a word count of all articles together.This is being called within Article.stats.
   Article.numWordsByAuthor = () => {
     return Article.allAuthors().map(author => {
       return {
@@ -75,6 +84,7 @@ var app = app || {};
   };
 
   // COMMENT: What is this function doing? Where is it called? Does it call any other functions, and if so, in what file(s) do those function(s) live?
+  //removes all rows, in this case, article rows, from a table.
   Article.truncateTable = callback => {
     $.ajax({
       url: '/articles',
